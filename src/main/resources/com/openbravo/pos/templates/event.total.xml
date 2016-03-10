@@ -1,0 +1,48 @@
+                                    // If you only want down rounding, enable the lines down.
+//     if (rounding>0) {
+//       rounding = rounding - .05; }
+
+import com.openbravo.format.Formats; 
+import com.openbravo.pos.ticket.TicketLineInfo; 
+import com.openbravo.pos.ticket.TicketProductInfo;  
+import java.util.Properties; 
+
+// script.ReceiptConsolidate (add to end of existing text resource)
+// ADD TO END OF script.ReceiptConsolidate
+// Round to nearest 5 cents (http://wiki.openbravo.com/wiki/POS_-_Round_to_nearest_5_cents)
+
+total = ticket.getTotal();
+realsubtotal = ticket.printTotal();
+
+if (total > 0.0) {
+  // rounding m to nearest multiple of n
+  m=total;
+  n=5.0; //round to the nearest 5cents
+  d = Math.floor((m*100.0+n/2.0)/n)*n/100.0-m;
+  // round to 2 decimal places
+  rounding = Math.round(d * Math.pow(10, (double) 2)) / Math.pow(10,(double) 2);
+  // add line if rounding is needed
+  if (rounding <= -0.01 || rounding >= 0.01) {
+    // Disabled the Question Cash or Card, next 3 lines
+    //Object[] options = {"Cash", "Other"};
+    //int reply = JOptionPane.showOptionDialog(null, "How do you want to pay?", "Cash or other", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
+    //if (reply == JOptionPane.YES_OPTION) {
+      taxes = ticket.getTaxLines();
+      for (int i = 0; i < taxes.length; i++) {
+        taxline = taxes[i];
+        // * if you only want to round down, remove slashes from the next two lines
+        //if (rounding>0) {
+        //rounding = rounding - .05; }
+}      
+  ticket.insertLine(ticket.getLinesCount(),
+        new TicketLineInfo(
+        "~"+realsubtotal,
+        taxline.getTaxInfo().getTaxCategoryID(),
+        1.0,
+        rounding,
+        taxline.getTaxInfo()));
+    // Disabled the Question Cash or Card next line
+    //} else if (reply == JOptionPane.NO_OPTION) {}
+  }
+  sales.setSelectedIndex(ticket.getLinesCount() - 1);
+} else {java.awt.Toolkit.getDefaultToolkit().beep();}

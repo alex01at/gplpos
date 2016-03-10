@@ -1,0 +1,2 @@
+Runtime runtime = Runtime.getRuntime();
+Process p = Runtime.getRuntime() .exec("cmd /C start C:/WINDOWS/system32/osk.exe");

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Originalscript- http://sourceforge.net/projects/unicentaopos _GPLPos Modifiziert fuer Oesterreich von Prossliner Alexander
+                    http://sourceforge.net/p/gplpos
+                    http://gplpos.com
+                    http://apkassen.com
+ -->
+
+<!--
+    The Administrator Role Permissions has full access to all uniCenta oPOS
+    functionality.
+    The Administrator Role should only be used to make system changes.
+    
+    *** Do not change unless you know what you are doing ***
+-->
+<!--
+    These reports will report an error with Derby DB's due to SQL limitations 
+    Remove the comment at beginning and end of line
+    You will also need to enable in Administration>Resources>Roles>Administrator/Manager & etc ***
+-->
+
+
+<permissions>
+    <class name="com.openbravo.pos.sales.JPanelTicketSales"/>
+    <class name="com.openbravo.pos.sales.JPanelTicketEdits"/>
+    <class name="com.openbravo.pos.customers.CustomersPayment"/>
+    <class name="com.openbravo.pos.panels.JPanelPayments"/>
+
+    <class name="sales.EditLines"/>
+    <class name="sales.EditTicket"/>
+    <class name="sales.PrintTicket"/>
+    <class name="sales.Total"/>
+    <class name="sales.ChangeTaxOptions"/>
+    <class name="payment.bank"/>
+    <class name="payment.cash"/>
+    <class name="payment.cheque"/>
+    <class name="payment.paper"/>
+    <class name="payment.magcard"/>
+    <class name="payment.debt"/>
+    <class name="sales.PrintKitchen"/>
+
+<!-- Standard button scripts -->
+    <class name="button.totaldiscount"/>
+    <class name="button.print"/>
+    <class name="button.opendrawer"/>
+    <class name="button.keyboard"/>
+    
+<!-- Additional button scripts -->
+    <class name="button.linediscount"/>
+    <class name="button.sendorder"/>
+
+<class name="com.openbravo.pos.forms.MenuCustomers"/>
+    <class name="com.openbravo.pos.customers.CustomersPanel"/>
+            <class name="/com/openbravo/reports/customers.bs"/>
+            <class name="/com/openbravo/reports/customersb.bs"/>
+            <class name="/com/openbravo/reports/customersdiary.bs"/>
+
+<class name="com.openbravo.pos.forms.MenuStockManagement"/>
+    <class name="com.openbravo.pos.inventory.AuxiliarPanel"/>
+    <class name="com.openbravo.pos.inventory.CategoriesPanel"/>
+    <class name="com.openbravo.pos.inventory.ProductsPanel"/>
+
+            <class name="/com/openbravo/reports/barcodesheet.bs"/>
+            <class name="/com/openbravo/reports/productscatalog.bs"/>
+            <class name="/com/openbravo/reports/products.bs"/>
+            <class name="/com/openbravo/reports/productlabels.bs"/>
+            <class name="/com/openbravo/reports/salecatalog.bs"/>
+            <class name="/com/openbravo/reports/shelfedgelabels.bs"/>
+
+<class name="com.openbravo.pos.forms.MenuSalesManagement"/>
+            <class name="/com/openbravo/reports/productsales.bs"/>
+
+   <class name="com.openbravo.pos.epm.JPanelEmployeePresence" />
+   <class name="Menu.ChangePassword"/>
+
+</permissions>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Originalscript- http://sourceforge.net/projects/unicentaopos _GPLPos Modifiziert fuer Oesterreich von Prossliner Alexander
+                    http://sourceforge.net/p/gplpos
+                    http://gplpos.com
+                    http://apkassen.com
+ -->
+<output>
+<!-- DISPLAY ANIMATION OPTIONS -->
+             <display animation="flyer">
+<!--            <display animation="scroll"> -->
+<!--            <display animation="blink"> -->
+<!--            <display animation="curtain"> -->
+<!--            <display animation="none"> -->
+        <line>
+            <text>GPLPos</text>
+        </line>
+        <line>
+            <text>Open Source - Point Of Sale</text>
+        </line>
+    </display>
+</output>
